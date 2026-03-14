@@ -1,6 +1,6 @@
 'use client'
 
-import { changeLocaleAction } from '@/../actions/change-locale'
+import { changeLocaleAction } from '@/actions/change-locale'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
