@@ -1,5 +1,6 @@
 'use client'
 
+import { changeLocaleAction } from '@/../actions/change-locale'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -7,7 +8,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Moon, Sun } from 'lucide-react'
+import { Globe, Moon, Sun } from 'lucide-react'
+import { Locale, useLocale } from 'next-intl'
 import { useTheme } from 'next-themes'
 
 export function ThemeToggle() {
@@ -28,6 +30,43 @@ export function ThemeToggle() {
         <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
+
+const locales = [
+  { value: 'es', label: 'Español' },
+  { value: 'en', label: 'English' },
+]
+
+export function LocaleToggle() {
+  const currentLocale = useLocale()
+
+  const handleChangeLocale = (locale: Locale) => {
+    if (locale !== currentLocale) changeLocaleAction(locale)
+  }
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger
+        render={
+          <Button variant="outline" size="icon">
+            <Globe className="h-[1.2rem] w-[1.2rem]" />
+            <span className="sr-only">Toggle locale</span>
+          </Button>
+        }
+      ></DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {locales.map((locale) => (
+          <DropdownMenuItem
+            key={locale.value}
+            onClick={() => handleChangeLocale(locale.value)}
+            className={locale.value === currentLocale ? 'font-bold' : ''}
+          >
+            {locale.label}
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   )

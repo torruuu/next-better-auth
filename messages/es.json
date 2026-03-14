@@ -1,0 +1,97 @@
+{
+  "Common": {
+    "action": {
+      "submit": "Enviar",
+      "sign_out": "Cerrar sesión"
+    }
+  },
+
+  "Home": {
+    "welcome": "¡Bienvenido {name}!"
+  },
+  "Login": {
+    "sign_in": {
+      "title": "Iniciar sesión",
+      "description": "Introduce tus datos para iniciar sesión"
+    },
+    "sign_up": {
+      "title": "Registrarse",
+      "description": "Introduce tus datos para crear una cuenta"
+    }
+  },
+  
+  "Form": {
+    "label": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "description": "Descripción",
+      "price": "Precio",
+      "stock": "Stock",
+      "category": "Categoría"
+    },
+    "error": {
+      "required": "Este campo es obligatorio",
+      "max_char": "Máximo {max} caracteres",
+      "min_char": "Mínimo {min} caracteres",
+      "max_number": "El valor máximo es {max}",
+      "min_number": "El valor mínimo es {min}",
+      "invalid_email": "Dirección de correo electrónico no válida"
+    }
+  },
+  
+  "Api": {
+    "error": {
+      "user_not_found": "Usuario no encontrado",
+      "failed_to_create_user": "Error al crear el usuario",
+      "failed_to_create_session": "Error al crear la sesión",
+      "failed_to_update_user": "Error al actualizar el usuario",
+      "failed_to_get_session": "Error al obtener la sesión",
+      "invalid_password": "Contraseña no válida",
+      "invalid_email": "Correo electrónico no válido",
+      "invalid_email_or_password": "Correo electrónico o contraseña no válidos",
+      "social_account_already_linked": "La cuenta social ya está vinculada",
+      "provider_not_found": "Proveedor no encontrado",
+      "invalid_token": "Token no válido",
+      "id_token_not_supported": "Token de ID no compatible",
+      "failed_to_get_user_info": "Error al obtener la información del usuario",
+      "user_email_not_found": "Correo electrónico del usuario no encontrado",
+      "email_not_verified": "Correo electrónico no verificado",
+      "password_too_short": "La contraseña es demasiado corta",
+      "password_too_long": "La contraseña es demasiado larga",
+      "user_already_exists": "El usuario ya existe",
+      "user_already_exists_use_another_email": "El usuario ya existe. Usa otro correo electrónico",
+      "email_can_not_be_updated": "El correo electrónico no puede actualizarse",
+      "credential_account_not_found": "Cuenta de credenciales no encontrada",
+      "session_expired": "Sesión expirada. Vuelve a autenticarte para realizar esta acción",
+      "failed_to_unlink_last_account": "No puedes desvincular tu última cuenta",
+      "account_not_found": "Cuenta no encontrada",
+      "user_already_has_password": "El usuario ya tiene contraseña. Proporciónala para eliminar la cuenta",
+      "cross_site_navigation_login_blocked": "Inicio de sesión bloqueado por navegación entre sitios",
+      "verification_email_not_enabled": "El correo de verificación no está habilitado",
+      "email_already_verified": "El correo electrónico ya está verificado",
+      "email_mismatch": "Los correos electrónicos no coinciden",
+      "session_not_fresh": "La sesión no es reciente",
+      "linked_account_already_exists": "La cuenta vinculada ya existe",
+      "invalid_origin": "Origen no válido",
+      "invalid_callback_url": "URL de callback no válida",
+      "invalid_redirect_url": "URL de redirección no válida",
+      "invalid_error_callback_url": "URL de callback de error no válida",
+      "invalid_new_user_callback_url": "URL de callback de nuevo usuario no válida",
+      "missing_or_null_origin": "Origen ausente o nulo",
+      "callback_url_required": "La URL de callback es obligatoria",
+      "failed_to_create_verification": "No se pudo crear la verificación",
+      "field_not_allowed": "Este campo no puede establecerse",
+      "async_validation_not_supported": "La validación asíncrona no está soportada",
+      "validation_error": "Error de validación",
+      "missing_field": "El campo es obligatorio",
+      
+      "internal_server_error": "Error interno del servidor",
+      "not_found": "No encontrado"
+    },
+    "success": {
+      "product_created": "Producto creado correctamente",
+      "product_created_description": "El producto con nombre {name} ha sido creado correctamente con id {id}"
+    }
+  }
+}

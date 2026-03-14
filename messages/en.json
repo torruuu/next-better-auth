@@ -1,0 +1,97 @@
+{
+  "Common": {
+    "action": {
+      "submit": "Submit",
+      "sign_out": "Sign out"
+    }
+  },
+
+  "Home": {
+    "welcome": "Welcome {name}!"
+  },
+  "Login": {
+    "sign_in": {
+      "title": "Sign in",
+      "description": "Enter your data to sign in"
+    },
+    "sign_up": {
+      "title": "Sign up",
+      "description": "Enter your data to create an account"
+    }
+  },
+  
+  "Form": {
+    "label": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "description": "Description",
+      "price": "Price",
+      "stock": "Stock",
+      "category": "Category"
+    },
+    "error": {
+      "required": "This field is required",
+      "max_char": "Maximum {max} characters",
+      "min_char": "Minimum {min} characters",
+      "max_number": "Maximum value is {max}",
+      "min_number": "Minimum value is {min}",
+      "invalid_email": "Invalid email address"
+    }
+  },
+
+  "Api": {
+    "error": {
+      "user_not_found": "User not found",
+      "failed_to_create_user": "Failed to create user",
+      "failed_to_create_session": "Failed to create session",
+      "failed_to_update_user": "Failed to update user",
+      "failed_to_get_session": "Failed to get session",
+      "invalid_password": "Invalid password",
+      "invalid_email": "Invalid email",
+      "invalid_email_or_password": "Invalid email or password",
+      "social_account_already_linked": "Social account already linked",
+      "provider_not_found": "Provider not found",
+      "invalid_token": "Invalid token",
+      "id_token_not_supported": "ID token not supported",
+      "failed_to_get_user_info": "Failed to get user info",
+      "user_email_not_found": "User email not found",
+      "email_not_verified": "Email not verified",
+      "password_too_short": "Password too short",
+      "password_too_long": "Password too long",
+      "user_already_exists": "User already exists",
+      "user_already_exists_use_another_email": "User already exists. Use another email",
+      "email_can_not_be_updated": "Email cannot be updated",
+      "credential_account_not_found": "Credential account not found",
+      "session_expired": "Session expired. Re-authenticate to perform this action",
+      "failed_to_unlink_last_account": "You can't unlink your last account",
+      "account_not_found": "Account not found",
+      "user_already_has_password": "User already has a password. Provide it to delete the account",
+      "cross_site_navigation_login_blocked": "Cross-site navigation login blocked",
+      "verification_email_not_enabled": "Verification email is not enabled",
+      "email_already_verified": "Email is already verified",
+      "email_mismatch": "Email mismatch",
+      "session_not_fresh": "Session is not fresh",
+      "linked_account_already_exists": "Linked account already exists",
+      "invalid_origin": "Invalid origin",
+      "invalid_callback_url": "Invalid callback URL",
+      "invalid_redirect_url": "Invalid redirect URL",
+      "invalid_error_callback_url": "Invalid error callback URL",
+      "invalid_new_user_callback_url": "Invalid new user callback URL",
+      "missing_or_null_origin": "Missing or null origin",
+      "callback_url_required": "Callback URL is required",
+      "failed_to_create_verification": "Unable to create verification",
+      "field_not_allowed": "Field not allowed to be set",
+      "async_validation_not_supported": "Async validation not supported",
+      "validation_error": "Validation error",
+      "missing_field": "Field is required",
+      
+      "internal_server_error": "Internal server error",
+      "not_found": "Not found"
+    },
+    "success": {
+      "product_created": "Product created successfully",
+      "product_created_description": "Product with name {name} has been created successfully with id {id}"
+    }
+  }
+}
