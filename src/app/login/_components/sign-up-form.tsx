@@ -11,6 +11,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/ui/password-input'
 import { useFormLocale } from '@/hooks/use-form-locale'
+import { authClient } from '@/lib/auth/auth-client'
 import { FormValidator } from '@/validators/form-validator'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
@@ -41,8 +42,11 @@ export function SignUpForm() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const { error } = await authClient.signUp.email({ ...values })
+    if (error) {
+      console.error(error)
+    }
   }
 
   useFormLocale(form)
