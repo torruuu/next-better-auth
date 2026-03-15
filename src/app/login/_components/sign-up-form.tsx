@@ -1,0 +1,106 @@
+'use client'
+
+import { Button } from '@/components/ui/button'
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+  FieldSet,
+} from '@/components/ui/field'
+import { Input } from '@/components/ui/input'
+import { PasswordInput } from '@/components/ui/password-input'
+import { useFormLocale } from '@/hooks/use-form-locale'
+import { FormValidator } from '@/validators/form-validator'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useMemo } from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import z from 'zod'
+
+export function SignUpForm() {
+  const t = useTranslations()
+
+  const formSchema = useMemo(
+    () =>
+      z.object({
+        name: FormValidator.string(t).max(10),
+        email: FormValidator.email(t),
+        password: FormValidator.string(t).min(8),
+      }),
+    [t],
+  )
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    mode: 'onChange',
+    defaultValues: {
+      name: '',
+      email: '',
+      password: '',
+    },
+  })
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values)
+  }
+
+  useFormLocale(form)
+
+  return (
+    <form onSubmit={form.handleSubmit(onSubmit)}>
+      <FieldSet>
+        <FieldGroup>
+          <Controller
+            name="name"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor={field.name}>{t('Form.label.name')}</FieldLabel>
+                <Input {...field} id={field.name} aria-invalid={fieldState.invalid} />
+                {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+              </Field>
+            )}
+          />
+
+          <Controller
+            name="email"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor={field.name}>{t('Form.label.email')}</FieldLabel>
+                <Input
+                  type="email"
+                  {...field}
+                  id={field.name}
+                  aria-invalid={fieldState.invalid}
+                />
+                {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+              </Field>
+            )}
+          />
+
+          <Controller
+            name="password"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor={field.name}>{t('Form.label.password')}</FieldLabel>
+                <PasswordInput
+                  {...field}
+                  id={field.name}
+                  aria-invalid={fieldState.invalid}
+                />
+                {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+              </Field>
+            )}
+          />
+        </FieldGroup>
+      </FieldSet>
+
+      <Field className="mt-6">
+        <Button type="submit">{t('Common.action.submit')}</Button>
+      </Field>
+    </form>
+  )
+}

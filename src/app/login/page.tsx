@@ -9,6 +9,8 @@ import {
 } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useTranslations } from 'next-intl'
+import { SignInForm } from './_components/sign-in-form'
+import { SignUpForm } from './_components/sign-up-form'
 
 export default function LoginPage() {
   const t = useTranslations('Login')
@@ -25,7 +27,7 @@ export default function LoginPage() {
             <CardDescription>{t('sign_in.description')}</CardDescription>
           </CardHeader>
           <CardContent>
-            <div>SignIn</div>
+            <SignInForm />
           </CardContent>
         </Card>
       </TabsContent>
@@ -37,7 +39,7 @@ export default function LoginPage() {
             <CardDescription>{t('sign_up.description')}</CardDescription>
           </CardHeader>
           <CardContent>
-            <div>SignUp</div>
+            <SignUpForm />
           </CardContent>
         </Card>
       </TabsContent>

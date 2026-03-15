@@ -1,5 +1,6 @@
 import Header from '@/components/layout/header'
 import { ThemeProvider } from '@/components/provider/theme-provider'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale } from 'next-intl/server'
@@ -26,10 +27,12 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider>
-            <div className="bg-background flex min-h-svh flex-col">
-              <Header />
-              <main className="flex flex-1 flex-col">{children}</main>
-            </div>
+            <TooltipProvider>
+              <div className="bg-background flex min-h-svh flex-col">
+                <Header />
+                <main className="flex flex-1 flex-col">{children}</main>
+              </div>
+            </TooltipProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
