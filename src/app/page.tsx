@@ -1,18 +1,17 @@
-import { Button } from '@/components/ui/button'
-import { authClient } from '@/lib/auth/auth-client'
-import { getTranslations } from 'next-intl/server'
+import { UserData } from '@/components/home/user-data'
+import { querySession } from '@/lib/auth/query-session'
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { redirect } from 'next/navigation'
 
 export default async function Home() {
-  const { data: session } = await authClient.getSession()
+  const { session, queryClient } = await querySession()
   if (!session) return redirect('/login')
 
-  const t = await getTranslations()
-
   return (
-    <div className="flex items-center justify-center">
-      <span>{t('Home.welcome', { name: session.user.name })}</span>
-      <Button variant="outline">{t('Common.action.sign_out')}</Button>
-    </div>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <div className="flex items-center justify-center">
+        <UserData />
+      </div>
+    </HydrationBoundary>
   )
 }

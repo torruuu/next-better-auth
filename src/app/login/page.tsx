@@ -6,14 +6,14 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { authClient } from '@/lib/auth/auth-client'
+import { querySession } from '@/lib/auth/query-session'
 import { getTranslations } from 'next-intl/server'
 import { redirect } from 'next/navigation'
 import { SignInForm } from './_components/sign-in-form'
 import { SignUpForm } from './_components/sign-up-form'
 
 export default async function LoginPage() {
-  const { data: session } = await authClient.getSession()
+  const { session } = await querySession()
   if (session) return redirect('/')
 
   const t = await getTranslations('Login')

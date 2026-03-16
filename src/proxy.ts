@@ -1,10 +1,11 @@
-import { authClient } from '@/lib/auth/auth-client'
 import { NextRequest, NextResponse } from 'next/server'
+import { querySession } from './lib/auth/query-session'
 
 const publicRoutes = ['/login']
 
 export async function proxy(request: NextRequest) {
-  const { data: session } = await authClient.getSession()
+  const { session } = await querySession()
+
   const isPublicRoute = publicRoutes.includes(request.nextUrl.pathname)
 
   // THIS IS NOT SECURE!

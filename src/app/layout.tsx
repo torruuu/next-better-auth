@@ -1,8 +1,6 @@
 import Header from '@/components/layout/header'
-import { ThemeProvider } from '@/components/provider/theme-provider'
-import { TooltipProvider } from '@/components/ui/tooltip'
+import { Providers } from '@/components/provider/providers'
 import type { Metadata } from 'next'
-import { NextIntlClientProvider } from 'next-intl'
 import { getLocale } from 'next-intl/server'
 import './globals.css'
 
@@ -20,21 +18,12 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className="antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NextIntlClientProvider>
-            <TooltipProvider>
-              <div className="bg-background flex min-h-svh flex-col">
-                <Header />
-                <main className="flex flex-1 flex-col">{children}</main>
-              </div>
-            </TooltipProvider>
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <Providers>
+          <div className="bg-background flex min-h-svh flex-col">
+            <Header />
+            <main className="flex flex-1 flex-col">{children}</main>
+          </div>
+        </Providers>
       </body>
     </html>
   )
