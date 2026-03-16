@@ -15,12 +15,14 @@ import { authClient } from '@/lib/auth/auth-client'
 import { FormValidator } from '@/validators/form-validator'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import z from 'zod'
 
 export function SignInForm() {
   const t = useTranslations()
+  const router = useRouter()
 
   const formSchema = useMemo(
     () =>
@@ -45,6 +47,7 @@ export function SignInForm() {
     if (error) {
       console.error(error)
     }
+    router.refresh()
   }
 
   useFormLocale(form)

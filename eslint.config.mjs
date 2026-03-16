@@ -31,6 +31,7 @@ const eslintConfig = defineConfig([
       'no-return-assign': RULES.OFF,
       'no-undef': RULES.OFF,
       '@typescript-eslint/no-unused-vars': RULES.OFF,
+      '@typescript-eslint/no-unused-expressions': RULES.ERROR,
     },
   },
   globalIgnores([

@@ -5,10 +5,7 @@ import { useMemo } from 'react'
 export function useSession() {
   const query = useQuery({
     queryKey: ['auth-session'],
-    queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 3000))
-      return await authClient.getSession()
-    },
+    queryFn: async () => await authClient.getSession(),
   })
 
   const session = useMemo(() => query.data?.data ?? null, [query.data])
