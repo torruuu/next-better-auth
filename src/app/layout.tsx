@@ -1,5 +1,6 @@
 import Header from '@/components/layout/header'
 import { Providers } from '@/components/provider/providers'
+import { Toaster } from '@/components/ui/sonner'
 import type { Metadata } from 'next'
 import { getLocale } from 'next-intl/server'
 import './globals.css'
@@ -19,6 +20,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className="antialiased">
         <Providers>
+          <Toaster position="top-right" />
           <div className="bg-background flex min-h-svh flex-col">
             <Header />
             <main className="flex flex-1 flex-col">{children}</main>

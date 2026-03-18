@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/ui/password-input'
+import { useApiMsg } from '@/hooks/use-api-msg'
 import { useFormLocale } from '@/hooks/use-form-locale'
 import { authClient } from '@/lib/auth/auth-client'
 import { FormValidator } from '@/validators/form-validator'
@@ -18,11 +19,13 @@ import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
 import { Controller, useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import z from 'zod'
 
 export function SignUpForm() {
   const t = useTranslations()
   const router = useRouter()
+  const { getTranslatedError } = useApiMsg()
 
   const formSchema = useMemo(
     () =>
@@ -47,7 +50,7 @@ export function SignUpForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const { error } = await authClient.signUp.email({ ...values })
     if (error) {
-      console.error(error)
+      return toast.error(getTranslatedError(error.code))
     }
     router.refresh()
   }
